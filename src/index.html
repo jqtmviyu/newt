@@ -1,9 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Newt</title>
     <script type="text/javascript" src="js/chrome-promise.js"></script>
-    <script type="text/javascript" src="js/analytics.js"></script>
 
     <!-- build:css css/app.min.css -->
     <link rel="stylesheet" type="text/css" href="css/app.css" />
@@ -13,11 +13,13 @@
     <div class="main-container">
       <div class="menu-bar">
         <menu-item action="bookmarks"></menu-item>
-        <menu-item action="apps"></menu-item>
+        <!-- not work on firfox -->
+        <!-- <menu-item action="apps"></menu-item> -->
         <menu-item action="frequents"></menu-item>
         <menu-item action="new"></menu-item>
         <menu-item action="recents"></menu-item>
-        <menu-item action="devices"></menu-item>
+        <!-- not work on firfox -->
+        <!-- <menu-item action="devices"></menu-item> -->
         <div style="flex: 1"></div>
         <menu-item action="menu"></menu-item>
       </div>

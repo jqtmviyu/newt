@@ -1,14 +1,14 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  let template = `
+    let template = `
         <style>
             @import url('css/shared.css');
 
             a {
                 color: var(--accent-color);
             }
-            
+
             .card {
                 display: flex;
                 flex-direction: column;
@@ -37,9 +37,9 @@
             .subtitle {
                 font-weight: normal;
             }
-            
+
         </style>
-        
+
         <div class='card'>
             <div class='card-title'>About</div>
 
@@ -48,16 +48,6 @@
             </p>
 
             <h3 class="subtitle">Changelog</h3>
-
-            <u>5.6.8</u>
-            <ul>
-                <li>More improvements to favicons in terms of accuracy and image quality.</li>
-            </ul>
-
-            <u>5.6.6</u>
-            <ul>
-                <li>Updated favicon service.</li>
-            </ul>
 
             <u>5.6.4</u>
             <ul>
@@ -171,13 +161,13 @@
         </div>
     `;
 
-  class SettingsCard extends HTMLElement {
-    constructor() {
-      super();
+    class SettingsCard extends HTMLElement {
+        constructor() {
+            super();
 
-      this.attachShadow({ mode: 'open' }).innerHTML = template;
+            this.attachShadow({mode: 'open'}).innerHTML = template;
+        }
     }
-  }
 
-  customElements.define('about-card', SettingsCard);
+    customElements.define('about-card', SettingsCard);
 })();

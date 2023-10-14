@@ -600,38 +600,38 @@ var Newt = (function () {
         switch (tab) {
             case 'bookmarks':
                 createBookmarkCards();
-                ga('send', 'screenview', { screenName: 'Bookmarks' });
+                //ga('send', 'screenview', { screenName: 'Bookmarks' });
                 break;
             case 'apps':
                 createAppCards();
-                ga('send', 'screenview', { screenName: 'Apps' });
+                //ga('send', 'screenview', { screenName: 'Apps' });
                 break;
             case 'frequents':
                 createFrequentsCard();
-                ga('send', 'screenview', { screenName: 'Frequents' });
+                //ga('send', 'screenview', { screenName: 'Frequents' });
                 break;
             case 'new':
                 createRecentlyAddedCard();
-                ga('send', 'screenview', { screenName: 'New Bookmarks' });
+                //ga('send', 'screenview', { screenName: 'New Bookmarks' });
                 break;
             case 'recents':
                 createRecentlyClosedCard();
-                ga('send', 'screenview', { screenName: 'Recent Tabs' });
+                //ga('send', 'screenview', { screenName: 'Recent Tabs' });
                 break;
             case 'devices':
                 createDeviceCards();
-                ga('send', 'screenview', { screenName: 'Devices' });
+                //ga('send', 'screenview', { screenName: 'Devices' });
                 break;
             case 'menu':
                 toggleMenu();
                 break;
             case 'settings':
                 createSettingsCard();
-                ga('send', 'screenview', { screenName: 'Settings' });
+                //ga('send', 'screenview', { screenName: 'Settings' });
                 break;
             case 'about':
                 createAboutCard();
-                ga('send', 'screenview', { screenName: 'About' });
+                //ga('send', 'screenview', { screenName: 'About' });
         }
 
         CardMap.currentTab = tab;
@@ -662,7 +662,7 @@ var Newt = (function () {
             themeSettings.appendChild(row);
         });
 
-        ga('send', 'screenview', { screenName: 'Theme Builder' });
+        //ga('send', 'screenview', { screenName: 'Theme Builder' });
     }
 
     function closeThemeBuilder() {

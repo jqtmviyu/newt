@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    
+
     let template = `
         <style>
             :host {
@@ -10,12 +10,12 @@
                 display: flex;
                 flex-direction: column;
                 background-color: var(--background-color);
-                margin: 10px;
+                margin: 5px;
                 vertical-align: top;
                 box-shadow: 0px 2px 3px var(--shadow-color);
                 border-radius: 5px;
                 overflow: hidden;
-                height: 375px;
+                height: 285px;
             }
 
             .card-title {
@@ -34,16 +34,18 @@
                 border-bottom: 2px solid var(--accent-color);
                 padding: 10px 10px 3px 10px;
             }
-            
+
             .items-container {
                 overflow-y: auto;
+                scrollbar-width: thin;
             }
-            
+
             ::-webkit-scrollbar {
                 width: 0px;
             }
+
         </style>
-        
+
         <div class="card" draggable="true">
             <div class="card-title"></div>
             <div class="items-container">
@@ -51,7 +53,7 @@
             </div>
         </div>
     `;
-    
+
     class Card extends HTMLElement {
         constructor() {
             super();
@@ -61,7 +63,7 @@
             this.$card = this.shadowRoot.querySelector('.card');
             this.$title = this.shadowRoot.querySelector('.card-title');
             this.$container = this.shadowRoot.querySelector('.items-container');
-            
+
             let self = this;
 
             this.$card.addEventListener('dragstart', function(ev) {
@@ -92,17 +94,17 @@
                     this.classList.remove('over');
                 }
             });
-            
+
             this.$title.addEventListener('drop', function(ev) {
-                
+
                 if (ev.dataTransfer.types.includes('sitedivid')) {
                     this.classList.remove('over');
-                    
+
                     let fromRow = this.ownerDocument.getElementById(ev.dataTransfer.getData('sitedivid'));
                     let card = self;
 
                     card.insertBefore(fromRow, self.children[0]);
-                    
+
                     ChromeService.moveBookmark(fromRow.data.id, card.data.id, 0);
                 }
             });
@@ -118,19 +120,19 @@
                 });
 
                 self.dispatchEvent(event);
-            });            
+            });
         }
-        
+
         set title(val) {
             this.setAttribute('title', val);
             this.$title.textContent = val;
         }
-        
+
         set data(val) {
             this.setAttribute('data', JSON.stringify(val));
             this.$title.textContent = this.data.title;
         }
-        
+
         get data() {
             return JSON.parse(this.getAttribute('data'));
         }
@@ -150,6 +152,6 @@
             return JSON.parse(this.getAttribute('config'));
         }
     }
-    
+
     customElements.define('small-card', Card);
 })();
